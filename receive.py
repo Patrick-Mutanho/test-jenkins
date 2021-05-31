@@ -2,6 +2,8 @@
 import pika, sys, os
 
 def main():
+    
+    print("")
 
     try:
         connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq-service', port=5672))
