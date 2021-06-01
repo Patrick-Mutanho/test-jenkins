@@ -12,19 +12,11 @@ pipeline {
       }
     }
 
-    stage('Build Docker Image') {
+    stage('Build Image') {
       steps {
-        sh '''docker build -t receive .
-
-
+        sh '''https://github.com/Patrick-Mutanho/test-jenkins.git
+cd ./test-jenkins
 '''
-      }
-    }
-
-    stage('Deploy Container') {
-      steps {
-        sh '''
-kubectl create -f receive '''
       }
     }
 
