@@ -14,7 +14,7 @@ pipeline {
 
     stage('Build Docker Image') {
       steps {
-        sh '''#! /bin/bash.
+        sh '''
 
 eval $(minikube docker-env)
 
@@ -27,8 +27,7 @@ docker build -t receive .
 
     stage('Deploy Container') {
       steps {
-        sh '''#!/bin/sh
-
+        sh '''
 kubectl create -f receive '''
       }
     }
