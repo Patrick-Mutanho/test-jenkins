@@ -9,7 +9,7 @@ pipeline {
 
     stage('Build Image') {
       steps {
-        sh '''git clone https://github.com/Patrick-Mutanho/test-jenkins.git
+        sh '''
 cd ./test-jenkins
 
 eval $(minikube docker-env)
