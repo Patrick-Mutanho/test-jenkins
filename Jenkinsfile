@@ -14,11 +14,7 @@ pipeline {
 
     stage('Build Docker Image') {
       steps {
-        sh '''
-
-eval $(minikube docker-env)
-
-docker build -t receive .
+        sh '''docker build -t receive .
 
 
 '''
