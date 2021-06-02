@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'slave'
-    }
-
-  }
+  agent any
   stages {
     stage('Check for docker file') {
       steps {
@@ -14,9 +9,18 @@ pipeline {
 
     stage('Build Image') {
       steps {
-        sh '''https://github.com/Patrick-Mutanho/test-jenkins.git
+        sh '''git clone https://github.com/Patrick-Mutanho/test-jenkins.git
 cd ./test-jenkins
 '''
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        sh '''eval $(minikube docker-env)
+docker build -t receive .
+
+kubectl create deployment receive --image=receive'''
       }
     }
 
